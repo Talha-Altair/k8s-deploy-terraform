@@ -26,18 +26,10 @@ resource "kubernetes_deployment_v1" "nginx-deployment" {
 
       spec {
         container {
-          image = "nginx:1.7.8"
+          image = "docker.io/nginx"
           name  = "nginx"
-
-          resources {
-            limits = {
-              cpu    = "0.5"
-              memory = "512Mi"
-            }
-            requests = {
-              cpu    = "250m"
-              memory = "50Mi"
-            }
+          port {
+            container_port = 80
           }
         }
       }
